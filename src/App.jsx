@@ -10,12 +10,9 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<ProtectedRoutes token={token} />}>
-        <Route path="/dashboard/*" element={<Dashboard />} />
-      </Route>
-      <Route path="login" element={<PublicRoute token={token} />}>
-        <Route path="/login" element={<SignIn />} />
-      </Route>
+      <Route path="/dashboard/*" element={<Dashboard />} />
+
+      <Route path="/login" element={<SignIn />} />
 
       {/*  <Route path="*" element={<Navigate to="/dashboard/home" replace />} /> */}
     </Routes>

@@ -46,20 +46,7 @@ export const routes = [
   {
     title: "auth pages",
     layout: "auth",
-    pages: [
-      {
-        icon: <ArrowRightOnRectangleIcon {...icon} />,
-        name: "sign in",
-        path: "/dashboard/login",
-        element: <SignIn />,
-      },
-      {
-        icon: <UserPlusIcon {...icon} />,
-        name: "sign up",
-        path: "/sign-up",
-        element: <SignUp />,
-      },
-    ],
+    pages: [],
   },
 ];
 
