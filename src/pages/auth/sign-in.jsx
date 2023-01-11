@@ -9,7 +9,6 @@ import axios from "axios";
 import { useSignIn } from "react-auth-kit";
 import logo from "../../../public/img/logo-ct.png";
 import { useState } from "react";
-import instance from "../../../axios-client";
 
 export function SignIn() {
   const signIn = useSignIn();
@@ -17,7 +16,7 @@ export function SignIn() {
   const submitForm = (event) => {
     event.preventDefault();
 
-    instance
+    axios
       .post("api/login", formData)
       .then((res) => {
         if (res.status === 200) {

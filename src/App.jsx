@@ -1,8 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Dashboard, Auth } from "@/layouts";
+import { Dashboard } from "@/layouts";
 import { SignIn } from "./pages/auth";
-import { ProtectedRoutes } from "./ProtectedRoutes";
-import PublicRoute from "./PublicRoute";
+
 import { useStateContext } from "./context/ContextProvider";
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
 
       <Route path="/login" element={<SignIn />} />
 
-      {/*  <Route path="*" element={<Navigate to="/dashboard/home" replace />} /> */}
+      <Route path="*" element={<Navigate to="/dashboard/home" replace />} />
     </Routes>
   );
 }
