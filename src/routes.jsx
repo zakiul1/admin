@@ -27,12 +27,25 @@ export const routes = [
         path: "/expenses",
         element: <Home />,
       },
+      {
+        icon: <HomeIcon {...icon} />,
+        name: "income",
+        path: "/income",
+        element: <Home />,
+      },
     ],
   },
   {
     title: "Settings",
     layout: "auth",
-    pages: [],
+    pages: [
+      {
+        icon: <HomeIcon {...icon} />,
+        name: "settings",
+        path: "/income",
+        element: <Home />,
+      },
+    ],
   },
 ];
 
