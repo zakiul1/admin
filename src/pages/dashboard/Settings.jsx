@@ -38,7 +38,7 @@ const Settings = () => {
         <Tabs value="html">
           <TabsHeader>
             {data.map(({ label, value }) => (
-              <Tab key={value} value={value}>
+              <Tab key={value} value={value} className="text-deep-orange-900">
                 {label}
               </Tab>
             ))}
