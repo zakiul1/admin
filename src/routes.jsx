@@ -3,6 +3,8 @@ import { GiMoneyStack } from "react-icons/gi";
 import { Home } from "@/pages/dashboard";
 import Expenses from "./pages/dashboard/Expenses";
 import { MdAttachMoney } from "react-icons/md";
+import Transaction from "./pages/dashboard/Transaction";
+import Settings from "./pages/dashboard/Settings";
 
 const icon = {
   className: "w-4 h-4 text-inherit",
@@ -34,13 +36,13 @@ export const routes = [
   },
   {
     title: "Settings",
-    layout: "auth",
+    layout: "dashboard",
     pages: [
       {
         icon: <GoDashboard {...icon} />,
         name: "settings",
-        path: "/income",
-        element: <Home />,
+        path: "/setting",
+        element: <Settings />,
       },
     ],
   },

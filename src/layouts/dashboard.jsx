@@ -9,6 +9,7 @@ import {
 } from "@/widgets/layout";
 import routes from "@/routes";
 import { useMaterialTailwindController, setOpenConfigurator } from "@/context";
+import Transaction from "@/pages/dashboard/Transaction";
 
 export function Dashboard() {
   const [controller, dispatch] = useMaterialTailwindController();
@@ -42,6 +43,7 @@ export function Dashboard() {
                 <Route exact path={path} element={element} />
               ))
           )}
+          <Route path="/expenses/transaction" element={<Transaction />} />
         </Routes>
         <div className="text-blue-gray-600">
           <Footer />

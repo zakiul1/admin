@@ -10,10 +10,6 @@ import routes from "@/routes";
 import { useStateContext } from "@/context/ContextProvider";
 
 export function Auth() {
-  const { token } = useStateContext();
-  if (!token) {
-    return <Navigate to="/dashboard/home" />;
-  }
   const navbarRoutes = [
     {
       name: "log in",

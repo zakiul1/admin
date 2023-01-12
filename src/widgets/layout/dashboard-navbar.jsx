@@ -30,7 +30,7 @@ export function DashboardNavbar() {
   const [controller, dispatch] = useMaterialTailwindController();
   const { fixedNavbar, openSidenav } = controller;
   const { pathname } = useLocation();
-  const [layout, page] = pathname.split("/").filter((el) => el !== "");
+  const [layout, page, subpage] = pathname.split("/").filter((el) => el !== "");
 
   return (
     <Navbar
@@ -66,6 +66,15 @@ export function DashboardNavbar() {
             >
               {page}
             </Typography>
+            {subpage && (
+              <Typography
+                variant="small"
+                color="blue-gray"
+                className="font-normal"
+              >
+                {subpage}
+              </Typography>
+            )}
           </Breadcrumbs>
           <Typography variant="h6" color="blue-gray">
             {page}

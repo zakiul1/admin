@@ -13,7 +13,7 @@ function App() {
 
       <Route path="/login" element={<SignIn />} />
 
-      <Route path="*" element={<Navigate to="/dashboard/home" replace />} />
+      {/*   <Route path="*" element={<Navigate to="/dashboard/home" replace />} /> */}
     </Routes>
   );
 }
