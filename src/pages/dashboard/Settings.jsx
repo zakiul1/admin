@@ -1,59 +1,41 @@
-import { TextField } from "@mui/material";
-import React from "react";
-import {
-  Tabs,
-  TabsHeader,
-  TabsBody,
-  Tab,
-  TabPanel,
-} from "@material-tailwind/react";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
+import Company from "../tabs/Company";
+import Employee from "../tabs/Employee";
+import Account from "../tabs/Account";
 
-const Settings = () => {
-  const data = [
-    {
-      label: "Company",
-      value: "html",
-      desc: `It really matters and then like it really doesn't matter.
-      What matters is the people who are sparked by it. And the people 
-      who are like offended by it, it doesn't matter.`,
-    },
-    {
-      label: "Employes",
-      value: "react",
-      desc: `Because it's about motivating the doers. Because I'm here
-      to follow my dreams and inspire other people to follow their dreams, too.`,
-    },
+export default function Settings() {
+  const [value, setValue] = React.useState("1");
 
-    {
-      label: "Expenses Head",
-      value: "vue",
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're 
-      constantly trying to express ourselves and actualize our dreams.`,
-    },
-  ];
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
-    <div className="mt-12">
-      <div className="mb-12 grid md:grid-cols-2 xl:grid-cols-1">
-        <Tabs value="html">
-          <TabsHeader>
-            {data.map(({ label, value }) => (
-              <Tab key={value} value={value} className="text-deep-orange-900">
-                {label}
-              </Tab>
-            ))}
-          </TabsHeader>
-          <TabsBody>
-            {data.map(({ value, desc }) => (
-              <TabPanel key={value} value={value}>
-                {desc}
-              </TabPanel>
-            ))}
-          </TabsBody>
-        </Tabs>
-      </div>
-    </div>
+    <Box sx={{ width: "100%", typography: "body1" }}>
+      <TabContext value={value}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <TabList onChange={handleChange} aria-label="lab API tabs example">
+            <Tab label="Company" value="1" />
+            <Tab label="Employee" value="2" />
+            <Tab label="Account" value="3" />
+          </TabList>
+        </Box>
+        <TabPanel value="1">
+          <Company />
+        </TabPanel>
+        <TabPanel value="2">
+          <Employee />
+        </TabPanel>
+        <TabPanel value="3">
+          {" "}
+          <Account />
+        </TabPanel>
+      </TabContext>
+    </Box>
   );
-};
-
-export default Settings;
+}

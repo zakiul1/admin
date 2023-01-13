@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useDemoData } from "@mui/x-data-grid-generator";
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { MdAdd } from "react-icons/md";
 const Expenses = () => {
   const { data } = useDemoData({
     dataSet: "Commodity",
@@ -12,11 +13,11 @@ const Expenses = () => {
 
   return (
     <div className="mt-12">
-      <div className="mb-12 grid md:grid-cols-1 xl:grid-cols-1">
-        <div className="flex justify-end">
-          <Link to={"/dashboard/expenses/transaction"}>
-            <Button className="mb-3 " color="green">
-              Add
+      <div className="relative mb-12 grid md:grid-cols-1 xl:grid-cols-1">
+        <div className="absolute right-0 top-[-15px] z-10">
+          <Link className="" to={"/dashboard/expenses/transaction"}>
+            <Button className="bg-green-400">
+              <MdAdd />
             </Button>
           </Link>
         </div>
