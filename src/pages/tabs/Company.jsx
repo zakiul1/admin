@@ -5,7 +5,7 @@ import Transaction from "../dashboard/Transaction";
 const Company = () => {
   return (
     <div>
-      <Expenses />
+      <Expenses header={"Company"} />
     </div>
   );
 };

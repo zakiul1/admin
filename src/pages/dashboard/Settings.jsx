@@ -25,13 +25,13 @@ export default function Settings() {
             <Tab label="Account" value="3" />
           </TabList>
         </Box>
-        <TabPanel value="1">
+        <TabPanel sx={{ padding: "0px" }} className="" value="1">
           <Company />
         </TabPanel>
-        <TabPanel value="2">
+        <TabPanel sx={{ padding: "0px" }} value="2">
           <Employee />
         </TabPanel>
-        <TabPanel value="3">
+        <TabPanel sx={{ padding: "0px" }} value="3">
           {" "}
           <Account />
         </TabPanel>

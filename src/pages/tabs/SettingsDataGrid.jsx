@@ -16,7 +16,7 @@ import {
   DialogActions,
 } from "@mui/material";
 
-const Expenses = ({ header }) => {
+const SettingsDataGrid = ({ header }) => {
   const { data } = useDemoData({
     dataSet: "Commodity",
     rowLength: 2,
@@ -75,4 +75,4 @@ const Expenses = ({ header }) => {
   );
 };
 
-export default Expenses;
+export default SettingsDataGrid;
