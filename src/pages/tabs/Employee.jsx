@@ -1,11 +1,10 @@
-import React from "react";
-import Expenses from "../dashboard/Expenses";
+import DataTable from "./DataTable";
 
 const Employee = () => {
   return (
-    <div>
-      <Expenses header={"Employee"} />
-    </div>
+    <>
+      <DataTable />
+    </>
   );
 };
 

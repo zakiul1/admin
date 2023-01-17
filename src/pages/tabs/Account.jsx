@@ -1,12 +1,8 @@
 import React from "react";
-import Expenses from "../dashboard/Expenses";
+import DataTable from "./DataTable";
 
 const Account = () => {
-  return (
-    <div>
-      <Expenses header={"Account"} />
-    </div>
-  );
+  return <></>;
 };
 
 export default Account;

@@ -32,7 +32,6 @@ export default function Settings() {
           <Employee />
         </TabPanel>
         <TabPanel sx={{ padding: "0px" }} value="3">
-          {" "}
           <Account />
         </TabPanel>
       </TabContext>

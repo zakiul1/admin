@@ -1,12 +1,26 @@
-import React from "react";
-import Expenses from "../dashboard/Expenses";
-import Transaction from "../dashboard/Transaction";
+import { useEffect, useState } from "react";
+import DataTable from "./DataTable";
+import { CompanyColumns } from "./column/colmn";
+import axios from "axios";
 
 const Company = () => {
+  const [tableData, setTableData] = useState([]);
+
+  useEffect(() => {
+    getData("/company");
+  }, []);
+
+  const getData = async (url) => {
+    let res = await axios.get(url);
+    let data = res.data;
+    setTableData(data);
+  };
+
+  console.log(tableData);
   return (
-    <div>
-      <Expenses header={"Company"} />
-    </div>
+    <>
+      <DataTable data={tableData} coloum={CompanyColumns} />
+    </>
   );
 };
 
