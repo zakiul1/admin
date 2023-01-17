@@ -2,9 +2,19 @@ import { useEffect, useState } from "react";
 import DataTable from "./DataTable";
 import { CompanyColumns } from "./column/colmn";
 import axios from "axios";
+import { Box, Button, Typography } from "@mui/material";
+import CompanyForm from "./form/CompanyForm";
 
 const Company = () => {
   const [tableData, setTableData] = useState([]);
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
   useEffect(() => {
     getData("/company");
@@ -18,9 +28,22 @@ const Company = () => {
 
   console.log(tableData);
   return (
-    <>
-      <DataTable data={tableData} coloum={CompanyColumns} />
-    </>
+    <Box>
+      <Box className="my-3 flex justify-between border-2 py-3">
+        <Box>
+          <Typography variant="h6">Company</Typography>
+        </Box>
+        <Box>
+          <Button variant="contained" color="success" onClick={handleClickOpen}>
+            ADD
+          </Button>
+          <CompanyForm open={open} handleClose={handleClose} />
+        </Box>
+      </Box>
+      <Box>
+        <DataTable data={tableData} coloum={CompanyColumns} />
+      </Box>
+    </Box>
   );
 };
 
