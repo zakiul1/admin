@@ -9,7 +9,7 @@ const Employee = () => {
   //data state
   const [tableData, setTableData] = useState([]);
   //loading state
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   //modal open state
   const [open, setOpen] = useState(false);
   //modal show function
@@ -22,7 +22,7 @@ const Employee = () => {
   };
   //modal show function
 
-  //fatch data
+  /* //fatch data
   useEffect(() => {
     getData("/employee");
   }, []);
@@ -32,7 +32,7 @@ const Employee = () => {
     let data = res.data;
     setTableData(data);
     setLoading(false);
-  };
+  }; */
   //fatch data
   return (
     <Box>

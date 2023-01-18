@@ -7,7 +7,7 @@ import CompanyForm from "./form/CompanyForm";
 
 const Company = () => {
   const [tableData, setTableData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -17,7 +17,7 @@ const Company = () => {
     setOpen(true);
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     getData("/company");
   }, []);
 
@@ -26,7 +26,7 @@ const Company = () => {
     let data = res.data;
     setTableData(data);
     setLoading(false);
-  };
+  }; */
 
   console.log(tableData);
   return (

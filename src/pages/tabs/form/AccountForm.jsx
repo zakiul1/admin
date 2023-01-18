@@ -1,32 +1,22 @@
-import {
-  Box,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-  TextField,
-  Button,
-  Input,
-  FormControl,
-  Select,
-  MenuItem,
-  InputLabel,
-} from "@mui/material";
+import { Box, Dialog, Button } from "@mui/material";
+import { CardBody, Input, Select, Option } from "@material-tailwind/react";
 
 const AccountForm = ({ open, handleClose }) => {
   return (
     <Box>
       <Dialog open={open} fullWidth maxWidth={"xs"}>
         <form>
-          <Box className="flex justify-between">
-            <DialogTitle>Add Account</DialogTitle>
-            <DialogTitle>
+          <CardBody className="flex flex-col gap-4 p-8">
+            <div className="relative mb-5 ">
+              <h3 className="m-auto text-2xl font-medium text-blue-gray-400">
+                Add Account
+              </h3>
               <button
                 onClick={handleClose}
                 type="button"
-                className="inline-flex items-center justify-center rounded-md bg-white p-2 text-red-900 hover:bg-gray-100 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500"
+                className="absolute right-[-10px] top-0 inline-flex items-center justify-center rounded-md bg-white p-2 text-red-800 hover:bg-gray-100 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-200"
               >
+                <span className="sr-only">Close menu</span>
                 <svg
                   className="h-6 w-6"
                   xmlns="http://www.w3.org/2000/svg"
@@ -43,74 +33,53 @@ const AccountForm = ({ open, handleClose }) => {
                   />
                 </svg>
               </button>
-            </DialogTitle>
-          </Box>
-          <DialogContent>
-            <Box className="flex w-full flex-col gap-y-5">
-              <Box className="flex gap-5">
-                <FormControl fullWidth>
-                  <TextField
-                    id="standard-basic"
-                    label="Name"
-                    variant="standard"
-                  />
-                </FormControl>
-
-                <FormControl fullWidth>
-                  <TextField
-                    id="standard-basic"
-                    label="Email"
-                    variant="standard"
-                  />
-                </FormControl>
-              </Box>
-              <Box>
-                <FormControl fullWidth>
-                  <TextField
-                    id="standard-basic"
-                    label="Address"
-                    variant="standard"
-                  />
-                </FormControl>
-              </Box>
-              <Box className="flex gap-5">
-                <FormControl fullWidth>
-                  <TextField
-                    id="standard-basic"
-                    label="Phone Number"
-                    variant="standard"
-                  />
-                </FormControl>
-                <FormControl fullWidth>
-                  <TextField
-                    id="standard-basic"
-                    label="Country"
-                    variant="standard"
-                  />
-                </FormControl>
-              </Box>
-              <Box className="mt-2">
-                <FormControl sx={{ width: 200 }} size={"small"}>
-                  <InputLabel id="demo-simple-select-label">Type</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    label="Type"
-                    value={""}
-                  >
-                    <MenuItem value={1}>Customer</MenuItem>
-                    <MenuItem value={2}>Factory</MenuItem>
-                    <MenuItem value={3}>Bank</MenuItem>
-                  </Select>
-                </FormControl>
-              </Box>
-            </Box>
-          </DialogContent>
-          <DialogActions className="my-5">
-            <Button variant="contained" color="success" onClick={handleClose}>
+            </div>
+            <Input
+              label="Name"
+              variant="standard"
+              size="lg"
+              /*  onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              } */
+            />
+            <Input
+              label="Account Number"
+              variant="standard"
+              size="lg"
+              /*  onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              } */
+            />
+            <Input
+              label="Bank Name"
+              variant="standard"
+              size="lg"
+              /*  onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              } */
+            />
+            <Input
+              variant="standard"
+              label="Swift Code"
+              size="lg"
+              /*  onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              } */
+            />
+            <Input
+              variant="standard"
+              label="Current Balance"
+              size="lg"
+              /*  onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              } */
+            />
+          </CardBody>
+          <div className="mr-5 mb-6 flex justify-end">
+            <Button variant="contained" color="success" size="small">
               Save
             </Button>
-          </DialogActions>
+          </div>
         </form>
       </Dialog>
     </Box>
