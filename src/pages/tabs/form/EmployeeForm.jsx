@@ -14,13 +14,13 @@ import {
   InputLabel,
 } from "@mui/material";
 
-const AccountForm = ({ open, handleClose }) => {
+const EmployeeForm = ({ open, handleClose }) => {
   return (
     <Box>
       <Dialog open={open} fullWidth maxWidth={"xs"}>
         <form>
           <Box className="flex justify-between">
-            <DialogTitle>Add Account</DialogTitle>
+            <DialogTitle>Add Employee</DialogTitle>
             <DialogTitle>
               <button
                 onClick={handleClose}
@@ -96,7 +96,6 @@ const AccountForm = ({ open, handleClose }) => {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Type"
-                    value={""}
                   >
                     <MenuItem value={1}>Customer</MenuItem>
                     <MenuItem value={2}>Factory</MenuItem>
@@ -117,4 +116,4 @@ const AccountForm = ({ open, handleClose }) => {
   );
 };
 
-export default AccountForm;
+export default EmployeeForm;

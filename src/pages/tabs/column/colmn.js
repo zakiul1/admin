@@ -32,3 +32,24 @@ export const CompanyColumns = [
     editable: true,
   },
 ];
+export const emlpoyeeColumns = [
+  { field: "id", headerName: "ID", width: 90 },
+  {
+    field: "name",
+    headerName: "Name",
+    width: 150,
+    editable: true,
+  },
+  {
+    field: "designation",
+    headerName: "Designation",
+    width: 150,
+    editable: true,
+  },
+  {
+    field: "phone_number",
+    headerName: "Phone Number",
+    width: 110,
+    editable: true,
+  },
+];

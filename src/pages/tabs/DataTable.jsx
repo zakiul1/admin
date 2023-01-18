@@ -1,17 +1,19 @@
 import Box from "@mui/material/Box";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
+import LinearProgress from "@mui/material/LinearProgress";
 
-export default function DataTable({ data, coloum }) {
+export default function DataTable({ data, coloum, loading }) {
   return (
     <Box sx={{ height: 400, width: "100%" }}>
       <DataGrid
+        components={{
+          LoadingOverlay: LinearProgress,
+        }}
         rows={data}
+        loading={loading}
         columns={coloum}
         pageSize={10}
         rowsPerPageOptions={[10]}
-        checkboxSelection
         disableSelectionOnClick
         experimentalFeatures={{ newEditingApi: true }}
       />

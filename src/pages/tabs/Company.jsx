@@ -7,6 +7,7 @@ import CompanyForm from "./form/CompanyForm";
 
 const Company = () => {
   const [tableData, setTableData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -24,6 +25,7 @@ const Company = () => {
     let res = await axios.get(url);
     let data = res.data;
     setTableData(data);
+    setLoading(false);
   };
 
   console.log(tableData);
@@ -41,7 +43,7 @@ const Company = () => {
         </Box>
       </Box>
       <Box>
-        <DataTable data={tableData} coloum={CompanyColumns} />
+        <DataTable loading={loading} data={tableData} coloum={CompanyColumns} />
       </Box>
     </Box>
   );
