@@ -20,7 +20,13 @@ const ViewForm = ({ data }) => {
   return (
     <>
       <Stack direction="row" spacing={1}>
-        <Fab onClick={onClick} size="small" color="primary" aria-label="edit">
+        <Fab
+          variant="extended"
+          onClick={onClick}
+          size="small"
+          color="primary"
+          aria-label="edit"
+        >
           <FiEye />
         </Fab>
         <CompanyViewData data={alldata} open={open} handleClose={handleClose} />
@@ -28,13 +34,15 @@ const ViewForm = ({ data }) => {
           /* onClick={onClick} */ size="small"
           color="secondary"
           aria-label="edit"
+          variant="extended"
         >
           <HiPencil />
         </Fab>
         <Fab
           /* onClick={onClick} */ size="small"
-          color="error"
+          color="warning"
           aria-label="edit"
+          variant="extended"
         >
           <FiTrash />
         </Fab>
