@@ -15,7 +15,6 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@material-tailwind/react";
 import { MaterialTailwindControllerProvider } from "@/context";
-import { AuthProvider } from "react-auth-kit";
 import "./index.css";
 import { ContextProvider } from "./context/ContextProvider";
 import axios from "axios";
@@ -23,7 +22,7 @@ import axios from "axios";
 axios.defaults.baseURL = "http://127.0.0.1:8000/api";
 axios.defaults.headers.common["Authorization"] = "AUTH TOKEN";
 axios.defaults.headers.post["Content-Type"] = "application/json";
-
+axios.defaults.headers.post["Content-Type"] = "multipart/form-date";
 axios.interceptors.response.use(
   (response) => {
     return response;

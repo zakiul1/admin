@@ -81,4 +81,34 @@ export const emlpoyeeColumns = [
     width: 110,
     editable: true,
   },
+
+  {
+    field: "action",
+    headerName: "Action",
+    align: "right",
+    width: 180,
+    sortable: false,
+    headerAlign: "center",
+    disableClickEventBubbling: false,
+    renderCell: (params) => <ViewForm data={params} />,
+  },
+];
+export const expenseHeadColumns = [
+  { field: "id", headerName: "ID", width: 90 },
+  {
+    field: "name",
+    headerName: "Name",
+    width: 150,
+    editable: true,
+  },
+  {
+    field: "action",
+    headerName: "Action",
+    align: "right",
+    width: 180,
+    sortable: false,
+    headerAlign: "center",
+    disableClickEventBubbling: false,
+    renderCell: (params) => <ViewForm data={params} />,
+  },
 ];

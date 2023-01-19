@@ -11,7 +11,6 @@ import logo from "../../../public/img/logo-ct.png";
 import { useState } from "react";
 
 export function SignIn() {
-  const signIn = useSignIn();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const submitForm = (event) => {
     event.preventDefault();
@@ -21,21 +20,6 @@ export function SignIn() {
       .then((res) => {
         if (res.status === 200) {
           console.log(res.data);
-          /* if (
-          signIn({
-            token: res.data.token,
-            expiresIn: res.data.expiresIn,
-            tokenType: "Bearer",
-            authState: res.data.authUserState,
-            refreshToken: res.data.refreshToken, // Only if you are using refreshToken feature
-            refreshTokenExpireIn: res.data.refreshTokenExpireIn, // Only if you are using refreshToken feature
-          })
-        ) {
-          // Only if you are using refreshToken feature
-          // Redirect or do-something
-        } else {
-          //Throw error
-        } */
         }
       })
       .catch((ee) => {
