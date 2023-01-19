@@ -15,7 +15,7 @@ export default function DataTable({ data, coloum, loading }) {
         pageSize={10}
         rowsPerPageOptions={[10]}
         disableSelectionOnClick
-        experimentalFeatures={{ newEditingApi: true }}
+        experimentalFeatures={{ newEditingApi: false }}
       />
     </Box>
   );

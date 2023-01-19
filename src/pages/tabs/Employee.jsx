@@ -1,9 +1,10 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Fab, Typography } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { emlpoyeeColumns } from "./column/colmn";
 import DataTable from "./DataTable";
 import EmployeeForm from "./form/EmployeeForm";
+import { HiPlus } from "react-icons/hi";
 
 const Employee = () => {
   //data state
@@ -36,17 +37,19 @@ const Employee = () => {
   //fatch data
   return (
     <Box>
-      <Box className="my-3 flex justify-between border-2 py-3">
-        <Box>
-          <Typography variant="h6">Employee</Typography>
-        </Box>
-        <Box>
-          <Button variant="contained" color="success" onClick={handleClickOpen}>
-            ADD
-          </Button>
-          <EmployeeForm open={open} handleClose={handleClose} />
-        </Box>
+      <Box className="relative my-2 flex justify-end ">
+        <Fab
+          onClick={handleClickOpen}
+          size="small"
+          sx={{ position: "absolute", top: "-5px", right: "-8px" }}
+          color="success"
+          aria-label="add"
+        >
+          <HiPlus />
+        </Fab>
+        <EmployeeForm open={open} handleClose={handleClose} />
       </Box>
+
       <DataTable loading={loading} data={tableData} coloum={emlpoyeeColumns} />
     </Box>
   );

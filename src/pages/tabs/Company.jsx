@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import DataTable from "./DataTable";
 import { CompanyColumns } from "./column/colmn";
 import axios from "axios";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Fab, Typography } from "@mui/material";
 import CompanyForm from "./form/CompanyForm";
-
+import { HiPlus } from "react-icons/hi";
 const Company = () => {
   const [tableData, setTableData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -17,7 +17,7 @@ const Company = () => {
     setOpen(true);
   };
 
-  /* useEffect(() => {
+  useEffect(() => {
     getData("/company");
   }, []);
 
@@ -26,21 +26,22 @@ const Company = () => {
     let data = res.data;
     setTableData(data);
     setLoading(false);
-  }; */
+  };
 
   console.log(tableData);
   return (
     <Box>
-      <Box className="my-3 flex justify-between border-2 py-3">
-        <Box>
-          <Typography variant="h6">Company</Typography>
-        </Box>
-        <Box>
-          <Button variant="contained" color="success" onClick={handleClickOpen}>
-            ADD
-          </Button>
-          <CompanyForm open={open} handleClose={handleClose} />
-        </Box>
+      <Box className="relative my-2 flex justify-end ">
+        <Fab
+          onClick={handleClickOpen}
+          size="small"
+          sx={{ position: "absolute", top: "-5px", right: "-8px" }}
+          color="success"
+          aria-label="add"
+        >
+          <HiPlus />
+        </Fab>
+        <CompanyForm open={open} handleClose={handleClose} />
       </Box>
       <Box>
         <DataTable loading={loading} data={tableData} coloum={CompanyColumns} />

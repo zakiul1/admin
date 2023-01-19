@@ -1,11 +1,11 @@
 import { Button } from "@material-tailwind/react";
-import { Box, Typography } from "@mui/material";
+import { Box, Fab } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { emlpoyeeColumns } from "./column/colmn";
+import { HiPlus } from "react-icons/hi";
 import DataTable from "./DataTable";
 import AccountForm from "./form/AccountForm";
-import { GrFormAdd } from "react-icons/gr";
 
 const Account = () => {
   const [tableData, setTableData] = useState([]);
@@ -32,16 +32,16 @@ const Account = () => {
 
   return (
     <Box>
-      <Box className="my-2 flex justify-end ">
-        <Button
+      <Box className="relative my-2 flex justify-end ">
+        <Fab
           onClick={handleClickOpen}
-          size="sm"
-          className="w-[70px] rounded-md"
-          color="blue"
+          size="small"
+          sx={{ position: "absolute", top: "-5px", right: "-8px" }}
+          color="success"
+          aria-label="add"
         >
-          <span className="text-[16px]">+</span>
-        </Button>
-
+          <HiPlus />
+        </Fab>
         <AccountForm open={open} handleClose={handleClose} />
       </Box>
 

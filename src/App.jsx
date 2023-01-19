@@ -10,6 +10,10 @@ function App() {
   return (
     <Routes>
       <Route path="/dashboard/*" element={<Dashboard />} />
+      <Route
+        path="/dashboard"
+        element={<Navigate to="/dashboard/home" replace />}
+      />
 
       <Route path="/login" element={<SignIn />} />
 
