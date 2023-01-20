@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import DataTable from "./DataTable";
 import { CompanyColumns } from "./column/colmn";
-import axios from "axios";
+import axiosCall from "../../../axios-client";
 import { Box, Fab, Typography } from "@mui/material";
 import CompanyForm from "./form/CompanyForm";
 import { HiPlus } from "react-icons/hi";
@@ -22,7 +22,7 @@ const Company = () => {
   }, []);
 
   const getData = async (url) => {
-    await axios
+    await axiosCall
       .get(url)
       .then((res) => {
         let data = res.data;

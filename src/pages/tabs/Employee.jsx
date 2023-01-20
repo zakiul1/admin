@@ -1,5 +1,5 @@
 import { Box, Button, Fab, Typography } from "@mui/material";
-import axios from "axios";
+import axiosCall from "../../../axios-client";
 import { useEffect, useState } from "react";
 import { emlpoyeeColumns } from "./column/colmn";
 import DataTable from "./DataTable";
@@ -29,7 +29,7 @@ const Employee = () => {
   }, []);
 
   const getData = async (url) => {
-    let res = await axios.get(url);
+    let res = await axiosCall.get(url);
     let data = res.data;
     setTableData(data);
     setLoading(false);

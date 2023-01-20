@@ -1,15 +1,16 @@
 import { Button } from "@material-tailwind/react";
 import { Box, Fab } from "@mui/material";
-import axios from "axios";
+import axiosCall from "../../../axios-client";
 import { useEffect, useState } from "react";
 import { expenseHeadColumns } from "./column/colmn";
 import { HiPlus } from "react-icons/hi";
 import DataTable from "./DataTable";
 import ExpenseHeadForm from "./form/ExpenseHeadForm";
+import { useStateContext } from "@/context/ContextProvider";
 
 const ExpenseHead = () => {
   //all State
-  const [tableData, setTableData] = useState([]);
+  const { expenseHeadParent } = useStateContext();
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   //all State
@@ -20,26 +21,6 @@ const ExpenseHead = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
-
-  //get Data Function
-  useEffect(() => {
-    getData("/expense-head");
-  }, []);
-
-  const getData = async (url) => {
-    await axios
-      .get(url)
-      .then((res) => {
-        let data = res.data;
-        setTableData(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
-  };
-  //get Data Function
 
   return (
     <Box>
@@ -53,13 +34,17 @@ const ExpenseHead = () => {
         >
           <HiPlus />
         </Fab>
-        <ExpenseHeadForm open={open} handleClose={handleClose} />
+        <ExpenseHeadForm
+          setOpen={setOpen}
+          open={open}
+          handleClose={handleClose}
+        />
       </Box>
 
       <Box>
         <DataTable
           loading={loading}
-          data={tableData}
+          data={expenseHeadParent}
           coloum={expenseHeadColumns}
         />
       </Box>
