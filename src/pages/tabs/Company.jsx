@@ -22,13 +22,20 @@ const Company = () => {
   }, []);
 
   const getData = async (url) => {
-    let res = await axios.get(url);
-    let data = res.data;
-    setTableData(data);
-    setLoading(false);
+    await axios
+      .get(url)
+      .then((res) => {
+        let data = res.data;
+        setTableData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   };
 
-  console.log(tableData);
+  //console.log(tableData);
   return (
     <Box>
       <Box className="relative my-2 flex justify-end ">

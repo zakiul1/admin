@@ -1,4 +1,5 @@
-import { useContext, useState, createContext } from "react";
+import axios from "axios";
+import { useContext, useState, createContext, useEffect } from "react";
 
 const StateContext = createContext({
   user: null,
@@ -10,6 +11,7 @@ const StateContext = createContext({
 export const ContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [token, _setToken] = useState(1);
+  const [expenseHeadParent, setexpenseHeadParent] = useState(null);
   const setToken = (token) => {
     _setToken(token);
     if (token) {
@@ -18,9 +20,28 @@ export const ContextProvider = ({ children }) => {
       localStorage.removeItem("ACCESS_TOKEN");
     }
   };
+
+  //getExpenseHeadData
+  useEffect(() => {
+    getExpenseHeadData("/expense-head");
+  }, []);
+  const getExpenseHeadData = async (url) => {
+    await axios
+      .get(url)
+      .then((res) => {
+        setexpenseHeadParent(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  //getExpenseHeadData
+  //console.log(expenseHeadParent);
   return (
     <StateContext.Provider
       value={{
+        expenseHeadParent,
+        setexpenseHeadParent,
         user,
         setUser,
         setToken,

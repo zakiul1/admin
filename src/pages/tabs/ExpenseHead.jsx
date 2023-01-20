@@ -8,9 +8,11 @@ import DataTable from "./DataTable";
 import ExpenseHeadForm from "./form/ExpenseHeadForm";
 
 const ExpenseHead = () => {
+  //all State
   const [tableData, setTableData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
+  //all State
   const handleClose = () => {
     setOpen(false);
   };
@@ -19,16 +21,25 @@ const ExpenseHead = () => {
     setOpen(true);
   };
 
+  //get Data Function
   useEffect(() => {
-    getData("/account");
+    getData("/expense-head");
   }, []);
 
   const getData = async (url) => {
-    let res = await axios.get(url);
-    let data = res.data;
-    setTableData(data);
-    setLoading(false);
+    await axios
+      .get(url)
+      .then((res) => {
+        let data = res.data;
+        setTableData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   };
+  //get Data Function
 
   return (
     <Box>

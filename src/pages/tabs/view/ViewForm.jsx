@@ -4,6 +4,7 @@ import { HiPencil } from "react-icons/hi";
 import { FiTrash, FiEye } from "react-icons/fi";
 import { useState } from "react";
 import CompanyViewData from "./CompanyViewData";
+import { useStateContext } from "@/context/ContextProvider";
 
 const ViewForm = ({ data }) => {
   const [open, setOpen] = useState(false);
