@@ -33,7 +33,7 @@ const ExpenseHeadForm = ({ open, handleClose }) => {
   return (
     <Box>
       <Dialog open={open} fullWidth maxWidth={"xs"}>
-        <form onSubmit={submitForm} enctype="multiple/form-data">
+        <form onSubmit={submitForm} encType="multiple/form-data">
           <CardBody className="flex flex-col gap-4 p-8">
             <div className="relative mb-5 ">
               <h3 className="m-auto text-2xl font-medium text-blue-gray-400">
