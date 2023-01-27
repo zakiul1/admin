@@ -1,6 +1,6 @@
 import { Button } from "@material-tailwind/react";
 import { Box, Fab } from "@mui/material";
-import axios from "axios";
+import axiosCall from "../../../axios-client";
 import { useEffect, useState } from "react";
 import { emlpoyeeColumns } from "./column/colmn";
 import { HiPlus } from "react-icons/hi";
@@ -24,7 +24,7 @@ const Account = () => {
   }, []);
 
   const getData = async (url) => {
-    let res = await axios.get(url);
+    let res = await axiosCall.get(url);
     let data = res.data;
     setTableData(data);
     setLoading(false);

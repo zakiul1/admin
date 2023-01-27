@@ -1,33 +1,31 @@
 import { Box, Dialog, Button } from "@mui/material";
 import { CardBody, Input, Select, Option } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axiosCall from "../../../../axios-client";
 import { useStateContext } from "@/context/ContextProvider";
 
-const ExpenseHeadForm = ({ open, handleClose }) => {
+const ExpenseHeadForm = ({ open, handleClose, setOpen }) => {
   //All State
   const [formData, setFormData] = useState({
     name: "",
     parrent: "",
     type: "",
   });
-  const { expenseHeadParent } = useStateContext();
+  const { expenseHeadParent, updateHead, setupdateHead } = useStateContext();
   //All State
 
   const submitForm = (event) => {
     event.preventDefault();
 
-    axios
+    axiosCall
       .post("/post-expense-head", formData)
       .then((res) => {
-        if (res.status === 200) {
-          console.log(res.data);
-        }
+        setupdateHead((prev) => prev + 1);
+        handleClose();
       })
       .catch((ee) => {
         console.log(ee);
       });
-    console.log(formData);
   };
   //console.log(expenseHeadParent);
   return (
@@ -71,18 +69,19 @@ const ExpenseHeadForm = ({ open, handleClose }) => {
                 setFormData({ ...formData, name: e.target.value })
               }
             />
-
-            <Select
-              variant="standard"
-              label="Parent"
-              onChange={(val) => setFormData({ ...formData, parrent: val })}
-            >
-              {expenseHeadParent.map((option) => (
-                <Option key={option.id} value={option.id.toString()}>
-                  {option.name}
-                </Option>
-              ))}
-            </Select>
+            {expenseHeadParent && (
+              <Select
+                variant="standard"
+                label="Parent"
+                onChange={(val) => setFormData({ ...formData, parrent: val })}
+              >
+                {expenseHeadParent.map((option) => (
+                  <Option key={option.id} value={option.id.toString()}>
+                    {option.name}
+                  </Option>
+                ))}
+              </Select>
+            )}
 
             <Select
               variant="standard"
