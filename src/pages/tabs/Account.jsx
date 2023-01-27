@@ -19,7 +19,7 @@ const Account = () => {
     setOpen(true);
   };
 
-  useEffect(() => {
+  /*   useEffect(() => {
     getData("/account");
   }, []);
 
@@ -28,7 +28,7 @@ const Account = () => {
     let data = res.data;
     setTableData(data);
     setLoading(false);
-  };
+  }; */
 
   return (
     <Box>

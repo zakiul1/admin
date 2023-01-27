@@ -18,8 +18,8 @@ const Income = () => {
     setOpen(true);
   };
 
-  useEffect(() => {
-    getData("/account");
+  /*   useEffect(() => {
+    getData("/income");
   }, []);
 
   const getData = async (url) => {
@@ -27,7 +27,7 @@ const Income = () => {
     let data = res.data;
     setTableData(data);
     setLoading(false);
-  };
+  }; */
 
   return (
     <div className="mt-2">

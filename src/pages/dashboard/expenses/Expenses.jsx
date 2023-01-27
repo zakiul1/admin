@@ -18,7 +18,7 @@ const Expenses = ({ header }) => {
     setOpen(true);
   };
 
-  useEffect(() => {
+  /*   useEffect(() => {
     getData("/account");
   }, []);
 
@@ -27,7 +27,7 @@ const Expenses = ({ header }) => {
     let data = res.data;
     setTableData(data);
     setLoading(false);
-  };
+  }; */
 
   return (
     <div className="mt-2">
