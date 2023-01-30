@@ -1,11 +1,12 @@
 import { GoDashboard } from "react-icons/go";
 import { GiMoneyStack } from "react-icons/gi";
+import { HiOutlineDocumentDuplicate } from "react-icons/hi2";
 import { Home } from "@/pages/dashboard";
 import { MdAttachMoney } from "react-icons/md";
-import Transaction from "./pages/dashboard/Transaction";
 import Settings from "./pages/dashboard/Settings";
 import Expenses from "./pages/dashboard/expenses/Expenses";
 import Income from "./pages/dashboard/income/Income";
+import Lc from "./pages/dashboard/lc/lc";
 
 const icon = {
   className: "w-4 h-4 text-inherit",
@@ -32,6 +33,12 @@ export const routes = [
         name: "income",
         path: "/income",
         element: <Income />,
+      },
+      {
+        icon: <HiOutlineDocumentDuplicate {...icon} />,
+        name: "lc",
+        path: "/lc",
+        element: <Lc />,
       },
     ],
   },
