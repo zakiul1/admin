@@ -1,15 +1,13 @@
-import { Button } from "@material-tailwind/react";
 import { Box, Fab } from "@mui/material";
-import axiosCall from "../../../axios-client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { emlpoyeeColumns } from "./column/colmn";
 import { HiPlus } from "react-icons/hi";
 import DataTable from "./DataTable";
 import AccountForm from "./form/AccountForm";
+import useFatchData from "./view/useFatchData";
 
 const Account = () => {
-  const [tableData, setTableData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [tableData, loading] = useFatchData("/account");
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -18,18 +16,6 @@ const Account = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
-
-  /*   useEffect(() => {
-    getData("/account");
-  }, []);
-
-  const getData = async (url) => {
-    let res = await axiosCall.get(url);
-    let data = res.data;
-    setTableData(data);
-    setLoading(false);
-  }; */
-
   return (
     <Box>
       <Box className="relative my-2 flex justify-end ">

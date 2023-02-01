@@ -1,5 +1,4 @@
-import axiosCall from "../../axios-client";
-import { useContext, useState, createContext, useEffect } from "react";
+import { useContext, useState, createContext } from "react";
 
 const StateContext = createContext({
   user: null,
@@ -11,8 +10,6 @@ const StateContext = createContext({
 export const ContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [token, _setToken] = useState(1);
-  const [updateHead, setupdateHead] = useState(1);
-  const [expenseHeadParent, setexpenseHeadParent] = useState([]);
   const setToken = (token) => {
     _setToken(token);
     if (token) {
@@ -22,31 +19,9 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
-  //getExpenseHeadData
-  useEffect(() => {
-    getExpenseHeadData("/expense-head");
-    console.log("Calling Function");
-  }, [updateHead]);
-  const getExpenseHeadData = async (url) => {
-    await axiosCall
-      .get(url)
-      .then((res) => {
-        setexpenseHeadParent(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  //getExpenseHeadData
-  //console.log(expenseHeadParent);
   return (
     <StateContext.Provider
       value={{
-        updateHead,
-        setupdateHead,
-        getExpenseHeadData,
-        expenseHeadParent,
-        setexpenseHeadParent,
         user,
         setUser,
         setToken,

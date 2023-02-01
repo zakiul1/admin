@@ -1,17 +1,14 @@
-import { Button } from "@material-tailwind/react";
 import { Box, Fab } from "@mui/material";
-import axiosCall from "../../../axios-client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { expenseHeadColumns } from "./column/colmn";
 import { HiPlus } from "react-icons/hi";
 import DataTable from "./DataTable";
 import ExpenseHeadForm from "./form/ExpenseHeadForm";
-import { useStateContext } from "@/context/ContextProvider";
+import useFatchData from "./view/useFatchData";
 
 const ExpenseHead = () => {
   //all State
-  const { expenseHeadParent } = useStateContext();
-  const [loading, setLoading] = useState(false);
+  const [tableData, loading] = useFatchData("/expense-head");
   const [open, setOpen] = useState(false);
   //all State
   const handleClose = () => {
@@ -44,7 +41,7 @@ const ExpenseHead = () => {
       <Box>
         <DataTable
           loading={loading}
-          data={expenseHeadParent}
+          data={tableData}
           coloum={expenseHeadColumns}
         />
       </Box>

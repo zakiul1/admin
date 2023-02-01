@@ -1,41 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DataTable from "./DataTable";
 import { CompanyColumns } from "./column/colmn";
-import axiosCall from "../../../axios-client";
-import { Box, Fab, Typography } from "@mui/material";
+import { Box, Fab } from "@mui/material";
 import CompanyForm from "./form/CompanyForm";
 import { HiPlus } from "react-icons/hi";
+import useFatchData from "./view/useFatchData";
 const Company = () => {
-  const [tableData, setTableData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [open, setOpen] = useState(false);
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [tableData, loading] = useFatchData("/company");
 
+  //Modal View State and method
+  const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
   };
-
-  useEffect(() => {
-    getData("/company");
-  }, []);
-
-  const getData = async (url) => {
-    await axiosCall
-      .get(url)
-      .then((res) => {
-        let data = res.data;
-        setTableData(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
+  const handleClose = () => {
+    setOpen(false);
   };
-
-  //console.log(tableData);
+  //Modal View State and method
   return (
     <Box>
       <Box className="relative my-2 flex justify-end ">

@@ -5,36 +5,21 @@ import { emlpoyeeColumns } from "./column/colmn";
 import DataTable from "./DataTable";
 import EmployeeForm from "./form/EmployeeForm";
 import { HiPlus } from "react-icons/hi";
+import useFatchData from "./view/useFatchData";
 
 const Employee = () => {
-  //data state
-  const [tableData, setTableData] = useState([]);
-  //loading state
-  const [loading, setLoading] = useState(false);
-  //modal open state
-  const [open, setOpen] = useState(false);
+  const [tableData, loading] = useFatchData("/employee");
+
   //modal show function
+  const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
   };
-
   const handleClickOpen = () => {
     setOpen(true);
   };
   //modal show function
 
-  /* //fatch data
-  useEffect(() => {
-    getData("/employee");
-  }, []);
-
-  const getData = async (url) => {
-    let res = await axiosCall.get(url);
-    let data = res.data;
-    setTableData(data);
-    setLoading(false);
-  }; */
-  //fatch data
   return (
     <Box>
       <Box className="relative my-2 flex justify-end ">
