@@ -1,12 +1,14 @@
 import axiosCall from "../../../../axios-client";
 import { useEffect, useState } from "react";
+import { useStateContext } from "@/context/ContextProvider";
 
 const useFatchData = (url) => {
   const [tableData, setTableData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { updateDataTable } = useStateContext();
   useEffect(() => {
     getData(url);
-  }, []);
+  }, [updateDataTable]);
 
   const getData = async (url) => {
     await axiosCall

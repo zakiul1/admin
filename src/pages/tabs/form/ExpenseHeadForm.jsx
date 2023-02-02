@@ -3,24 +3,27 @@ import { CardBody, Input, Select, Option } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import axiosCall from "../../../../axios-client";
 import { useStateContext } from "@/context/ContextProvider";
+import SelectR from "./SelectR";
 
-const ExpenseHeadForm = ({ open, handleClose, setOpen }) => {
+const ExpenseHeadForm = ({ open, handleClose, setOpen, data }) => {
+  const { setupdateDataTable } = useStateContext();
   //All State
   const [formData, setFormData] = useState({
     name: "",
-    parrent: "",
+    parent: 0,
     type: "",
   });
-  const { expenseHeadParent, updateHead, setupdateHead } = useStateContext();
+
   //All State
 
   const submitForm = (event) => {
     event.preventDefault();
+    console.log(formData);
 
     axiosCall
       .post("/post-expense-head", formData)
       .then((res) => {
-        setupdateHead((prev) => prev + 1);
+        setupdateDataTable((prev) => prev + 1);
         handleClose();
       })
       .catch((ee) => {
@@ -28,6 +31,8 @@ const ExpenseHeadForm = ({ open, handleClose, setOpen }) => {
       });
   };
   //console.log(expenseHeadParent);
+
+  const selectGen = () => {};
   return (
     <Box>
       <Dialog open={open} fullWidth maxWidth={"xs"}>
@@ -69,19 +74,8 @@ const ExpenseHeadForm = ({ open, handleClose, setOpen }) => {
                 setFormData({ ...formData, name: e.target.value })
               }
             />
-            {expenseHeadParent && (
-              <Select
-                variant="standard"
-                label="Parent"
-                onChange={(val) => setFormData({ ...formData, parrent: val })}
-              >
-                {expenseHeadParent.map((option) => (
-                  <Option key={option.id} value={option.id.toString()}>
-                    {option.name}
-                  </Option>
-                ))}
-              </Select>
-            )}
+
+            <SelectR data={data} />
 
             <Select
               variant="standard"
@@ -92,6 +86,22 @@ const ExpenseHeadForm = ({ open, handleClose, setOpen }) => {
               <Option value="0">Expense Head</Option>
               <Option value="1">Income Head</Option>
             </Select>
+
+            {/*  <div class="flex justify-center">
+              <div class="mb-3 xl:w-96">
+                <select
+                  className="form-select m-0 block w-full appearance-none rounded border border-solid border-gray-300 bg-white bg-clip-padding bg-no-repeat px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-white focus:text-gray-700 focus:outline-none"
+                  aria-label="Default select example"
+                  onChange={(val) => setFormData({ ...formData, parrent: val })}
+                >
+                  {data.map((option) => (
+                    <option key={option.id} value={option.id.toString()}>
+                      {option.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div> */}
           </CardBody>
           <div className="mr-5 mb-6 flex justify-end">
             <Button

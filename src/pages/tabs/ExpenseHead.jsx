@@ -35,6 +35,7 @@ const ExpenseHead = () => {
           setOpen={setOpen}
           open={open}
           handleClose={handleClose}
+          data={tableData}
         />
       </Box>
 

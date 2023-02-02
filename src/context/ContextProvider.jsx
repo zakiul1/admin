@@ -8,6 +8,7 @@ const StateContext = createContext({
 });
 
 export const ContextProvider = ({ children }) => {
+  const [updateDataTable, setupdateDataTable] = useState(1);
   const [user, setUser] = useState({});
   const [token, _setToken] = useState(1);
   const setToken = (token) => {
@@ -22,6 +23,8 @@ export const ContextProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
+        updateDataTable,
+        setupdateDataTable,
         user,
         setUser,
         setToken,
