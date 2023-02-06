@@ -1,31 +1,34 @@
-import { Box, Dialog, Button } from "@mui/material";
+import { Box, Dialog, Button, CircularProgress } from "@mui/material";
 import { CardBody, Input, Option, Select } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import axiosCall from "../../../../axios-client";
 
 import TreeItemView from "./TreeItemView";
+import { useStateContext } from "@/context/ContextProvider";
 
 const ExpenseHeadForm = ({ open, handleClose, setOpen, data }) => {
   //All State
+  const { setupdateDataTable } = useStateContext();
   const [formData, setFormData] = useState({
     name: "",
     parent: "0",
-    type: "",
+    type: "0",
   });
-  console.log(data);
+  //console.log(data);
   //All State
 
   const getId = (nodeId) => {
     console.log(nodeId);
-    // return nodeId;
+    setFormData((prev) => {
+      return { ...prev, parent: nodeId };
+    });
   };
+  console.log(formData);
+
   const submitForm = (event) => {
     event.preventDefault();
-    // console.log(getId());
-    //setFormData((prev) => console.log(prev));
-    //console.log()
 
-    /*  axiosCall
+    axiosCall
       .post("/post-expense-head", formData)
       .then((res) => {
         setupdateDataTable((prev) => prev + 1);
@@ -33,7 +36,7 @@ const ExpenseHeadForm = ({ open, handleClose, setOpen, data }) => {
       })
       .catch((ee) => {
         console.log(ee);
-      }); */
+      });
   };
 
   return (
@@ -77,21 +80,11 @@ const ExpenseHeadForm = ({ open, handleClose, setOpen, data }) => {
                 setFormData({ ...formData, name: e.target.value })
               }
             />
-            {/*    <DropdownTreeSelect
-              data={data}
-              onChange={onChange}
-              onAction={onAction}
-              onNodeToggle={onNodeToggle}
-              multiSelect={false}
-              showPartiallySelected={true}
-              showDropdown="true"
-            /> */}
             <TreeItemView data={data} getId={getId} />
             <Select
               variant="standard"
               label="Head Type"
               onChange={(val) => setFormData({ ...formData, type: val })}
-              required
             >
               <Option value="0">Expense Head</Option>
               <Option value="1">Income Head</Option>

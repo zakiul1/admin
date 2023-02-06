@@ -3,7 +3,6 @@ import { HiChevronRight, HiChevronDown } from "react-icons/hi2";
 
 const TreeItemView = ({ data, getId }) => {
   const func = (e, nodeId) => {
-    //console.log(nodeId);
     return getId(nodeId);
   };
   return (
@@ -21,8 +20,9 @@ const TreeItemView = ({ data, getId }) => {
       {data &&
         data.map((item) => {
           const { id, name, child } = item;
+
           return (
-            <TreeItem key={id} nodeId={id} label={name}>
+            <TreeItem key={id} nodeId={id.toString()} label={name}>
               {child?.length && <TreeItemView data={child} getId={getId} />}
             </TreeItem>
           );
