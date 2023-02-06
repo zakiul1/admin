@@ -1,26 +1,31 @@
 import { Box, Dialog, Button } from "@mui/material";
-import { CardBody, Input, Select, Option } from "@material-tailwind/react";
+import { CardBody, Input, Option, Select } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import axiosCall from "../../../../axios-client";
-import { useStateContext } from "@/context/ContextProvider";
-import SelectR from "./SelectR";
+
+import TreeItemView from "./TreeItemView";
 
 const ExpenseHeadForm = ({ open, handleClose, setOpen, data }) => {
-  const { setupdateDataTable } = useStateContext();
   //All State
   const [formData, setFormData] = useState({
     name: "",
-    parent: 0,
+    parent: "0",
     type: "",
   });
-
+  console.log(data);
   //All State
 
+  const getId = (nodeId) => {
+    console.log(nodeId);
+    // return nodeId;
+  };
   const submitForm = (event) => {
     event.preventDefault();
-    console.log(formData);
+    // console.log(getId());
+    //setFormData((prev) => console.log(prev));
+    //console.log()
 
-    axiosCall
+    /*  axiosCall
       .post("/post-expense-head", formData)
       .then((res) => {
         setupdateDataTable((prev) => prev + 1);
@@ -28,11 +33,9 @@ const ExpenseHeadForm = ({ open, handleClose, setOpen, data }) => {
       })
       .catch((ee) => {
         console.log(ee);
-      });
+      }); */
   };
-  //console.log(expenseHeadParent);
 
-  const selectGen = () => {};
   return (
     <Box>
       <Dialog open={open} fullWidth maxWidth={"xs"}>
@@ -74,9 +77,16 @@ const ExpenseHeadForm = ({ open, handleClose, setOpen, data }) => {
                 setFormData({ ...formData, name: e.target.value })
               }
             />
-
-            <SelectR data={data} />
-
+            {/*    <DropdownTreeSelect
+              data={data}
+              onChange={onChange}
+              onAction={onAction}
+              onNodeToggle={onNodeToggle}
+              multiSelect={false}
+              showPartiallySelected={true}
+              showDropdown="true"
+            /> */}
+            <TreeItemView data={data} getId={getId} />
             <Select
               variant="standard"
               label="Head Type"
@@ -86,22 +96,6 @@ const ExpenseHeadForm = ({ open, handleClose, setOpen, data }) => {
               <Option value="0">Expense Head</Option>
               <Option value="1">Income Head</Option>
             </Select>
-
-            {/*  <div class="flex justify-center">
-              <div class="mb-3 xl:w-96">
-                <select
-                  className="form-select m-0 block w-full appearance-none rounded border border-solid border-gray-300 bg-white bg-clip-padding bg-no-repeat px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:bg-white focus:text-gray-700 focus:outline-none"
-                  aria-label="Default select example"
-                  onChange={(val) => setFormData({ ...formData, parrent: val })}
-                >
-                  {data.map((option) => (
-                    <option key={option.id} value={option.id.toString()}>
-                      {option.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div> */}
           </CardBody>
           <div className="mr-5 mb-6 flex justify-end">
             <Button
