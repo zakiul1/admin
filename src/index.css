@@ -2,18 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.Mui-selected {
-  color: red;
-  background: blue;
-}
-.Mui-focused {
-  color: green;
-}
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: #777d77 #ffffff;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Chrome, Edge, and Safari */
@@ -35,4 +29,10 @@
 }
 *::-webkit-scrollbar-thumb:active {
   background: rgba(0, 0, 0, 0.9);
+}
+/* .Mui-focused {
+  color: blue;
+} */
+.Mui-selected {
+  color: green;
 }

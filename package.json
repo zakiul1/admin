@@ -20,13 +20,15 @@
     "@mui/x-data-grid-generator": "^5.17.18",
     "apexcharts": "3.35.5",
     "axios": "^1.2.2",
+    "formik": "^2.2.9",
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-apexcharts": "1.4.0",
     "react-auth-kit": "^2.7.1",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
-    "react-router-dom": "6.4.2"
+    "react-router-dom": "6.4.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "18.0.17",

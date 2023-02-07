@@ -80,7 +80,10 @@ const ExpenseHeadForm = ({ open, handleClose, setOpen, data }) => {
                 setFormData({ ...formData, name: e.target.value })
               }
             />
-            <TreeItemView data={data} getId={getId} />
+            <label className="text-sm text-gray-600" htmlFor="parentSection">
+              Select Parent
+            </label>
+            <TreeItemView id="parentSection" data={data} getId={getId} />
             <Select
               variant="standard"
               label="Head Type"

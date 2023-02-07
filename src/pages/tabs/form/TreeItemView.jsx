@@ -3,6 +3,7 @@ import { HiChevronRight, HiChevronDown } from "react-icons/hi2";
 
 const TreeItemView = ({ data, getId }) => {
   const func = (e, nodeId) => {
+    console.log(e.currentTarget.classList.add("addColor"));
     return getId(nodeId);
   };
   return (
@@ -14,6 +15,8 @@ const TreeItemView = ({ data, getId }) => {
         flexGrow: 1,
         maxHeight: 200,
         overflowY: "auto",
+        border: "1px solid #ddd",
+        padding: "10px",
       }}
       onNodeSelect={func}
     >

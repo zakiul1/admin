@@ -1,18 +1,10 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "@mui/lab/TabPanel";
+import { TabList, TabPanel, TabContext } from "@mui/lab";
 import Company from "../tabs/Company";
 import Employee from "../tabs/Employee";
 import Account from "../tabs/Account";
-import {
-  HiOutlineBuildingLibrary,
-  HiOutlineUserGroup,
-  HiOutlineCurrencyDollar,
-  HiOutlineListBullet,
-} from "react-icons/hi2";
 import ExpenseHead from "../tabs/ExpenseHead";
 
 export default function Settings() {
@@ -32,27 +24,11 @@ export default function Settings() {
             onChange={handleChange}
             aria-label="lab API tabs example"
           >
-            <Tab
-              icon={<HiOutlineBuildingLibrary size="24px" />}
-              label="Company"
-              value="1"
-            />
+            <Tab label="Company" value="1" />
 
-            <Tab
-              label="Employee"
-              value="2"
-              icon={<HiOutlineUserGroup size="24px" />}
-            />
-            <Tab
-              label="Account"
-              value="3"
-              icon={<HiOutlineCurrencyDollar size="24px" />}
-            />
-            <Tab
-              label="Expense Head"
-              value="4"
-              icon={<HiOutlineListBullet size="24px" />}
-            />
+            <Tab label="Employee" value="2" />
+            <Tab label="Account" value="3" />
+            <Tab label="Expense Head" value="4" />
           </TabList>
         </Box>
         <TabPanel sx={{ padding: "0px" }} className="" value="1">

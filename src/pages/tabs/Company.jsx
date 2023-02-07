@@ -13,7 +13,7 @@ const Company = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
-  const handleClose = () => {
+  const handleClose = (form) => {
     setOpen(false);
   };
   //Modal View State and method

@@ -99,7 +99,7 @@ export const expenseHeadColumns = [
     field: "name",
     headerName: "Name",
     width: 150,
-    editable: true,
+    editable: false,
   },
   {
     field: "action",
