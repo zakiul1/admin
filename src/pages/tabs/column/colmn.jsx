@@ -94,14 +94,15 @@ export const emlpoyeeColumns = [
   },
 ];
 export const expenseHeadColumns = [
-  { field: "id", headerName: "ID", width: 90 },
+  { key: "id", name: "ID", width: 90 },
   {
-    field: "name",
-    headerName: "Name",
+    key: "name",
+    name: "Name",
     width: 150,
     editable: false,
   },
-  {
+
+  /*   {
     field: "action",
     headerName: "Action",
     align: "right",
@@ -110,5 +111,5 @@ export const expenseHeadColumns = [
     headerAlign: "center",
     disableClickEventBubbling: false,
     renderCell: (params) => <ViewForm data={params} />,
-  },
+  }, */
 ];

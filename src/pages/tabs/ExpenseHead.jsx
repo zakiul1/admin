@@ -2,13 +2,15 @@ import { Box, Fab } from "@mui/material";
 import { useState } from "react";
 import { expenseHeadColumns } from "./column/colmn";
 import { HiPlus } from "react-icons/hi";
-import DataTable from "./DataTable";
+import DataGrid from "react-data-grid";
 import ExpenseHeadForm from "./form/ExpenseHeadForm";
 import useFatchData from "./view/useFatchData";
+import Table from "./Table";
 
 const ExpenseHead = () => {
   //all State
   const [tableData, loading] = useFatchData("/expense-head");
+  console.log(tableData);
   const [open, setOpen] = useState(false);
   //all State
   const handleClose = () => {
@@ -40,11 +42,14 @@ const ExpenseHead = () => {
       </Box>
 
       <Box>
-        <DataTable
+        {/* <DataTable
           loading={loading}
           data={tableData}
           coloum={expenseHeadColumns}
-        />
+        /> */}
+
+        {/* <DataGrid columns={expenseHeadColumns} rows={tableData} /> */}
+        <Table data={tableData} />
       </Box>
     </Box>
   );
