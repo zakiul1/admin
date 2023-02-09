@@ -18,12 +18,10 @@ const ExpenseHeadForm = ({ open, handleClose, setOpen, data }) => {
   //All State
 
   const getId = (nodeId) => {
-    console.log(nodeId);
     setFormData((prev) => {
       return { ...prev, parent: nodeId };
     });
   };
-  console.log(formData);
 
   const submitForm = (event) => {
     event.preventDefault();

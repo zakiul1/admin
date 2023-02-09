@@ -10,7 +10,7 @@ import Table from "./Table";
 const ExpenseHead = () => {
   //all State
   const [tableData, loading] = useFatchData("/expense-head");
-  console.log(tableData);
+
   const [open, setOpen] = useState(false);
   //all State
   const handleClose = () => {
